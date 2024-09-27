@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السكريبتات</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            direction: rtl;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #111;
+            padding: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            color: #32ff7e;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .product {
+            background-color: #222;
+            border: 1px solid #32ff7e;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product button {
+            background-color: #32ff7e;
+            border: none;
+            color: #111;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .product button:hover {
+            background-color: #28d67b;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">الرئيسية</a>
+        <a href="scripts.html">السكريبتات</a>
+        <a href="bots.html">البوتات</a>
+        <a href="files.html">الملفات</a> <!-- رابط تصنيف الملفات -->
+        <a href="cart.html">السلة</a>
+    </div>
+    
+    
+
+    <div class="products">
+        <div class="product">
+            <img src="music_mix_4.png" alt="Script 1">
+            <h3>┆weed・task┆📦</h3>
+            <p>السعر: 100 ريال</p>
+            <button onclick="addToCart('┆weed・task┆📦', 100)">أضف إلى السلة</button>
+        </div>
+
+        <div class="product">
+            <img src="music_mix_6.png" alt="Script 2">
+            <h3>┆wash・money┆💵</h3>
+            <p>السعر: 150 ريال</p>
+            <button onclick="addToCart('┆wash・money┆💵', 150)">أضف إلى السلة</button>
+        </div>
+
+        <div class="product">
+            <img src="music mix.png" alt="Script 3">
+            <h3>Army Truck Theft Script</h3>
+            <p>السعر: 200 ريال</p>
+            <button onclick="addToCart('Army Truck Theft Script', 200)">أضف إلى السلة</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 جميع الحقوق محفوظة</p>
+    </div>
+
+    <script>
+        // وظيفة لإضافة المنتج إلى السلة
+        function addToCart(productName, productPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; // استرجاع السلة أو إنشاء سلة جديدة
+
+            // إضافة المنتج إلى السلة
+            let product = { name: productName, price: productPrice };
+            cart.push(product);
+
+            // تحديث السلة في localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // إشعار المستخدم
+            alert(productName + " تمت إضافته إلى السلة.");
+        }
+    </script>
+</body>
+</html>
